@@ -12,7 +12,9 @@ public class MethodApp {
 
         System.out.println("v1 = " + v1 + " v2 = " + v2 + " v3 = " + multiplication(v1, v2));
 
-        //PrintUtil.printFormatted(str:  );
+        PrintUtil.printFormatted("v1 = " + v1 + " v2 = " + v2 + " v3 = " + multiplication(v1, v2 ));
+
+        PrintUtil.printFormatted("string to format");
 
         System.out.printf(TEMPLATE, 10, "str");
         System.out.println();

@@ -9,8 +9,7 @@ public class CycleApp {
             if (i > 6) {
                 break;
             }
-           // PrintUtil.printFormatted(str:"string " + i);
-            PrintUtil.printFormatted;
+            PrintUtil.printFormatted("string " + i);
         }
         System.out.println(getDividedByThree());
         /*for (int i=10; i > 0; i--) {
