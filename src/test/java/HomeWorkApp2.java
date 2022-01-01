@@ -1,19 +1,36 @@
 public class HomeWorkApp2 {
     public static void main(String[] args) {
-        System.out.println(src(11, 19));
-        System.out.println(posNeg(-1));
+        System.out.println(summaOfNumbers(11, 9));
+        posNeg(-20);
+        System.out.println(posOrNeg(-20));
+        printTextNTimes("Методы", 3);
+        System.out.println(leapOrNotLeap(2040));
     }
 
-    public static boolean src(int a, int b) {
-        boolean summa = (a + b >= 10 && a + b <= 20);
-        return summa;
+    public static boolean summaOfNumbers(int fNumber, int sNumber) {
+        return (fNumber + sNumber >= 10 && fNumber + sNumber <= 20);
     }
-    public static int posNeg(int c) {
+
+    static void posNeg(int c) {
         if (c >= 0) {
             System.out.println("Положительное число");
         } else {
             System.out.println("Отрицательное число");
         }
-        return null;
+    }
+
+    public static boolean posOrNeg(int number) {
+        return (number < 0);
+    }
+
+    public static void printTextNTimes(String textForString, int numberOfTimes) {
+        for (int i = 0; i < numberOfTimes; i++) {
+            System.out.println(textForString);
+        }
+    }
+
+    public static boolean leapOrNotLeap(int year) {
+        int everyNotLeap = 100, everyLeap = 400, leapYear = 4;
+        return (year % leapYear == 0) && ((year % everyNotLeap != 0) || (year % everyLeap == 0));
     }
 }
