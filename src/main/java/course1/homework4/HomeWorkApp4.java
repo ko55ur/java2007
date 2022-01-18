@@ -1,7 +1,5 @@
 package course1.homework4;
 
-import com.sun.source.tree.BreakTree;
-
 import java.util.Random;
 import java.util.Scanner;
 
@@ -81,6 +79,7 @@ public class HomeWorkApp4 {
     }
 
     public static boolean checkWin(char symbol) {
+
         for (int i = 0; i < gameArea.length; i++) {
             if ((gameArea[i][0] == symbol && gameArea[i][1] == symbol && gameArea[i][2] == symbol) || (gameArea[0][i] == symbol && gameArea[1][i] == symbol && gameArea[2][i] == symbol))
                 return true;
@@ -89,6 +88,9 @@ public class HomeWorkApp4 {
 
         }return false;
     }
+
+
+ 
     public static boolean isGameAreaFull() {
         for (int i = 0; i < gameArea.length; ++i) {
             for (int j = 0; j < gameArea[i].length; ++j) {
