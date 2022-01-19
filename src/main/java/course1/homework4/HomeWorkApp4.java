@@ -80,16 +80,23 @@ public class HomeWorkApp4 {
 
     public static boolean checkWin(char symbol) {
         char sum = 0;
-        for (int i = 0; i < gameArea.length; i++)
-            for (int k = gameArea.length - (gameArea.length - 1); k < gameArea.length; k++) {
+        for (int i = 0; i < gameArea.length; i++) {
+            for (int j = 0; j < gameArea.length; j++) {
+                if ((gameArea[i][j] == symbol && gameArea[i][j] == symbol && gameArea[i][j] == symbol) || (gameArea[j][i] == symbol && gameArea[j][i] == symbol && gameArea[j][i] == symbol))
+                    return true;
+                if ((gameArea[0][0] == symbol && gameArea[1][1] == symbol && gameArea[2][2] == symbol) || (gameArea[2][0] == symbol && gameArea[1][1] == symbol && gameArea[0][2] == symbol))
+                    return true;
+            }
+        }
+            /*for (int k = gameArea.length - (gameArea.length - 1); k < gameArea.length; k++) {
                 for (int j = 0; j < gameArea[i].length; j++)
                     for (int l = gameArea.length - (gameArea.length - 1); l < gameArea[i].length; l++) {
                    // sum += gameArea[symbol];
-                        if ((gameArea[i][j] == symbol) && (gameArea[k][l] == gameArea[i][j]) && sum == DOTS_TO_WIN) {
                             return true;
                         }
-                    }
-        }
+          }
+                   }
+        */
         return false;
     }
 
