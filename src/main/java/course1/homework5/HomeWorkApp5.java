@@ -24,7 +24,21 @@ public class HomeWorkApp5 {
         employeeArray[3] = new Employee("Smirnov Vasiliy", "QA", "example4@in.com", "92112345658", 100000, 41);
         employeeArray[4] = new Employee("Shostakovich Vasiliy", "Team Lead", "example5@in.com", "92112346678", 130000, 49);
 
-        System.out.println(employeeArray);
+        /*employeeArray[1].setEmployeeAge(20);
+        employeeArray[1].setEmployeeEmail("gggg@in.com");
+        employeeArray[1].setEmployeePhone("999999999");
+        employeeArray[1].setEmployeePosition("QA");
+        employeeArray[1].setEmployeeSalary(300000);
+*/
+        System.out.println();
+        employeeArray[1].printEmployee();
+        System.out.println();
+        for (int i = 0; i < employeeArray.length; i++) {
+            if (employeeArray[i].getEmployeeAge() > 40) {
+                System.out.println(employeeArray[i].printEmployee())
+            }
+
+        }
 
     }
 

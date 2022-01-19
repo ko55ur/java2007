@@ -9,13 +9,13 @@ public class Employee {
     private int employeeSalary;
     private int employeeAge;
 
-    public Employee(String employeeFullName_, String employeePosition_, String employeeEmail_, String  employeePhone_, int employeeSalary_, int employeeAge_) {
-        employeeAge = employeeAge_;
-        employeeEmail = employeeEmail_;
-        employeeFullName = employeeFullName_;
-        employeePhone = employeePhone_;
-        employeePosition = employeePosition_;
-        employeeSalary = employeeSalary_;
+    public Employee(String employeeFullName, String employeePosition, String employeeEmail, String employeePhone, int employeeSalary, int employeeAge) {
+        this.employeeFullName = employeeFullName;
+        this.employeePosition = employeePosition;
+        this.employeeEmail = employeeEmail;
+        this.employeePhone = employeePhone;
+        this.employeeSalary = employeeSalary;
+        this.employeeAge = employeeAge;
     }
 
     public String getEmployeeFullName() {
@@ -70,6 +70,11 @@ public class Employee {
         return employeeAge;
     }
     public void printEmployee() {
-        System.out.println(Employee.class);
+        System.out.println(getEmployeeFullName()+ " " + getEmployeePosition() + " " + getEmployeeEmail() + " " + getEmployeePhone() + " " + getEmployeeSalary() + " " + getEmployeeAge());
     }
+   // public void overAge() {
+     //   for (int i = 0; i <; i++) {
+
+       // }
+    //}
 }
