@@ -72,9 +72,4 @@ public class Employee {
     public void printEmployee() {
         System.out.println(getEmployeeFullName()+ " " + getEmployeePosition() + " " + getEmployeeEmail() + " " + getEmployeePhone() + " " + getEmployeeSalary() + " " + getEmployeeAge());
     }
-   // public void overAge() {
-     //   for (int i = 0; i <; i++) {
-
-       // }
-    //}
 }
