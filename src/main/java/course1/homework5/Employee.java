@@ -2,74 +2,75 @@ package course1.homework5;
 
 public class Employee {
 
-    private String employeeFullName;
-    private String employeePosition;
-    private String employeeEmail;
-    private String  employeePhone;
-    private int employeeSalary;
-    private int employeeAge;
+    private String fullName;
+    private String position;
+    private String eMail;
+    private String phone;
+    private int salary;
+    private int age;
 
-    public Employee(String employeeFullName, String employeePosition, String employeeEmail, String employeePhone, int employeeSalary, int employeeAge) {
-        this.employeeFullName = employeeFullName;
-        this.employeePosition = employeePosition;
-        this.employeeEmail = employeeEmail;
-        this.employeePhone = employeePhone;
-        this.employeeSalary = employeeSalary;
-        this.employeeAge = employeeAge;
+    public Employee(String fullName, String position, String eMail, String phone, int salary, int age) {
+        this.fullName = fullName;
+        this.position = position;
+        this.eMail = eMail;
+        this.phone = phone;
+        this.salary = salary;
+        this.age = age;
     }
 
-    public String getEmployeeFullName() {
-        return employeeFullName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setEmployeeFullName(String employeeFullName) {
-        this.employeeFullName = employeeFullName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    public String getEmployeePosition() {
-        return employeePosition;
+    public String getPosition() {
+        return position;
     }
 
-    public void setEmployeePosition(String employeePosition) {
-        this.employeePosition = employeePosition;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public String getEmployeeEmail() {
-        return employeeEmail;
+    public String getEMail() {
+        return eMail;
     }
 
-    public void setEmployeeEmail(String employeeEmail) {
-        this.employeeEmail = employeeEmail;
+    public void setEMail(String eMail) {
+        this.eMail = eMail;
     }
 
-    public String  getEmployeePhone() {
-        return employeePhone;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setEmployeePhone(String  employeePhone) {
-        this.employeePhone = employeePhone;
-    }
-    public int getEmployeeSalary() {
-        return employeeSalary;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setEmployeeSalary(int employeeSalary) {
-        this.employeeSalary = employeeSalary;
+    public int getSalary() {
+        return salary;
     }
 
-    public int getEmployeeAge() {
-        return employeeAge;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public int setEmployeeAge(int employeeAge) {
-        if (employeeAge >= 0) {
-            this.employeeAge = employeeAge;
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        if (age <= 120 && age > 0) {
+            this.age = age;
         } else {
             System.out.println("Введен некорректный возраст");
         }
-        return employeeAge;
     }
+
     public void printEmployee() {
-        System.out.println(getEmployeeFullName()+ " " + getEmployeePosition() + " " + getEmployeeEmail() + " " + getEmployeePhone() + " " + getEmployeeSalary() + " " + getEmployeeAge());
+        System.out.println(getFullName() + " " + getPosition() + " " + getEMail() + " " + getPhone() + " " + getSalary() + " " + getAge());
     }
 }

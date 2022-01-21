@@ -5,7 +5,7 @@ public class DemoApp {
 
     public static void main(String[] args) {
 
-        Car car = new Car("Dodge", 2020);
+        Car car = new Car("Dodge", -2020);
         Car.wheelsNumber = 4;
 
 

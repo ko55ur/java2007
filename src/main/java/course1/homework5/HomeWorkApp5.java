@@ -1,7 +1,5 @@
 package course1.homework5;
 
-import java.util.Arrays;
-
 public class HomeWorkApp5 {
     public static void main(String[] args) {
         Employee[] employeeArray = new Employee[5];
@@ -14,13 +12,10 @@ public class HomeWorkApp5 {
         System.out.println();
         employeeArray[1].printEmployee();
         System.out.println();
-        for (Employee employee : employeeArray) {
-            if (employee.getEmployeeAge() > 40) {
+        for (Employee employee : employeeArray)
+            if (employee.getAge() > 40) {
                 employee.printEmployee();
             }
-
-        }
-
     }
 
 }
