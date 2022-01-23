@@ -1,5 +1,6 @@
 package course1.lesson6;
 
+
 //Is a
 public class Van extends Car {
 
@@ -19,7 +20,9 @@ public class Van extends Car {
         this.seats = seats;
     }
 
+    @Override
     void printName() {
-        System.out.println("This is a car");
+        super.printName();
+        System.out.println("This is a van");
     }
 }

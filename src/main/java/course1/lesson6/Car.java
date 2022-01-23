@@ -1,5 +1,6 @@
 package course1.lesson6;
 
+
 public class Car extends Transport {
 
     protected String model;
@@ -29,12 +30,12 @@ public class Car extends Transport {
     }
 
     @Override
-    void printName() {
-        System.out.println("This is a car");
-    }
-
-    @Override
     public String toString() {
         return model + " " + year;
+    }
+
+
+    void info() {
+        System.out.println(this);
     }
 }

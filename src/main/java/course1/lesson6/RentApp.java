@@ -1,5 +1,8 @@
 package course1.lesson6;
 
+
+import java.util.Arrays;
+
 public class RentApp {
 
     public static void main(String[] args) {
@@ -12,10 +15,10 @@ public class RentApp {
 
 
         System.out.println(car instanceof Van); // false
-        System.out.println(car instanceof Car); // true
-        System.out.println(van instanceof Car); // true
-        System.out.println(cabrio instanceof Van); // false
-        System.out.println(cabrio instanceof Transport); // true
+        System.out.println(car instanceof Car); //true
+        System.out.println(van instanceof Car); //true
+        System.out.println(cabrio instanceof Van); //false
+        System.out.println(cabrio instanceof Transport); //true
 
         Car[] cars = {car, cabrio, van};
 
@@ -32,17 +35,18 @@ public class RentApp {
                 System.out.println("This is a van " + v.getSeats());
             }
         }
+
         System.out.println();
         System.out.println();
         System.out.println();
 
         Transport[] transports = {car, cabrio, van};
+
         for (Transport transport : transports) {
             System.out.println(transport);
         }
-        {
 
-        }
+        System.out.println(Arrays.toString(transports));
 
         //System.out.println(van);
     }
