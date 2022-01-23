@@ -1,6 +1,6 @@
 package course1.lesson7;
 
-public abstract class Transport {
+public abstract class Transport extends Invention{
     protected String color;
 
 
