@@ -12,7 +12,7 @@ package course1.homework6;
 public class HomeWork6 {
     public static void main(String[] args) {
         Animal dog = new Dog("Tuzik", 100, 5);
-        Animal cat = new Cat("Kisa", 100, 22);
+        Animal cat = new Cat("Kisa", 100, 2);
         Animal cat1 = new Cat("Koshak", 26, 85);
         cat.info();
         dog.info();

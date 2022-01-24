@@ -3,15 +3,16 @@ package course1.homework6;
 public class Animal {
 
 
-    private String name;
-    private int runDist;
-    private int swimDist;
+    protected String name;
+    protected int runDist;
+    protected int swimDist;
 
     public Animal(String name, int runDist, int swimDist) {
         this.name = name;
         this.runDist = runDist;
         this.swimDist = swimDist;
     }
+
 
     public int getRunDist() {
         return runDist;
