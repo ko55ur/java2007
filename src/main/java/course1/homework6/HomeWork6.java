@@ -11,16 +11,16 @@ package course1.homework6;
 
 public class HomeWork6 {
     public static void main(String[] args) {
-        Dog dog = new Dog(300, 10, "Tuzik");
-        Cat cat = new Cat(203, 10,"Kisa");
-        Cat cat1 = new Cat(103, 1, "Koshak");
-
+        Animal dog = new Dog("Tuzik", 100, 5);
+        Animal cat = new Cat("Kisa", 100, 22);
+        Animal cat1 = new Cat("Koshak", 26, 85);
         cat.info();
         dog.info();
+        dog.ifRun(5000);
+        dog.ifSwim(5000);
+        cat.ifRun(10);
+        cat.ifSwim(10);
         cat1.info();
-        dog.ifRun(); dog.ifSwim();
-        //dog.swimRun();
-        cat1.swimRun();
 
     }
 }
