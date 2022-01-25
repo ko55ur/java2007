@@ -14,6 +14,7 @@ public class HomeWork6 {
         Animal dog = new Dog("Tuzik", 100, 5);
         Animal cat = new Cat("Kisa", 100, 2);
         Animal cat1 = new Cat("Koshak", 26, 85);
+        Animal dog2 = new Dog("Barbos", 60, 50);
         cat.info();
         dog.info();
         dog.ifRun(5000);
@@ -21,6 +22,11 @@ public class HomeWork6 {
         cat.ifRun(10);
         cat.ifSwim(10);
         cat1.info();
+        System.out.println();
+        System.out.println("Создано животных: " + Animal.count);
+        System.out.println("Создано собак: " + Dog.count);
+        System.out.println("Создано котов: " + Cat.count);
+
 
     }
 }

@@ -2,6 +2,7 @@ package course1.homework6;
 
 public class Animal {
 
+    static int count = 0;
 
     protected String name;
     protected int runDist;
@@ -11,6 +12,8 @@ public class Animal {
         this.name = name;
         this.runDist = runDist;
         this.swimDist = swimDist;
+
+        count++;
     }
 
 
