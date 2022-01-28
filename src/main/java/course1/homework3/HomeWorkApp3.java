@@ -3,6 +3,8 @@ package course1.homework3;
 import java.util.Arrays;
 
 public class HomeWorkApp3 {
+
+
     public static void main(String[] args) {
 
         System.out.println("Задание 1");
@@ -43,16 +45,19 @@ public class HomeWorkApp3 {
         int[][] dArr = new int[6][6];
         {
             for (int i = 0; i < dArr.length; i++) {
-                for (int j = 0; j < dArr[0].length; j++) {
-                    if ((i + j) % 2 == 0) {
+                for (int j = 0; j < dArr[i].length; j++)
+                    if ((i == j) || (j == dArr.length - i - 1)) {
                         dArr[i][j] = 1;
-                    }
-                }
+                    } else dArr[i][j] = 0;
                 System.out.println(Arrays.toString(dArr[i]));
             }
         }
+
         System.out.println("---");
-        System.out.println("Задание 5");
+        System.out.println(Arrays.toString(arrMethod(6, 10)));
+
+        System.out.println("---");
+        System.out.println("Задание 6");
 
         int[] mArr = {-300, 56, 767, 123, 6778, -2132, 566};
         {
@@ -66,22 +71,21 @@ public class HomeWorkApp3 {
             }
             System.out.println(maxVal);
             System.out.println(minVal);
-
         }
-        System.out.println("---");
-        System.out.println();
 
-        System.out.println("---");
-        System.out.println("Задание 6");
-        arrMethod(7, 8);
+
     }
 
-    public static void arrMethod(int len, int initialValue) {
+    public static int[] arrMethod(int len, int initialValue) {
+
+        System.out.println("Задание 5");
+
         int[] rArr = new int[len];
         for (int i = 0; i < len; i++) {
             rArr[i] = initialValue;
-            System.out.println(Arrays.toString(new int[]{rArr[i]}));
         }
+        return rArr;
+
     }
 }
 
