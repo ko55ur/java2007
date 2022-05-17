@@ -1,19 +1,26 @@
 package course1.homework8;
 
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
+import javax.swing.WindowConstants;
+
 public class HomeWorkApp8 extends JFrame {
     private int value;
-    private final JLabel infoLabel;
+    private JLabel infoLabel;
 
 
     public HomeWorkApp8(int x, int y) {
-        setBounds(x, y, 300, 120);
-        setTitle("HomeWorkApp");
+        setBounds(x, y, 300,120);
+        setTitle("Counter app");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
 
@@ -23,53 +30,21 @@ public class HomeWorkApp8 extends JFrame {
         JLabel label = new JLabel(String.valueOf(value));
         label.setFont(font);
         label.setHorizontalAlignment(SwingConstants.CENTER);
-
-        JFrame frame = new JFrame("HomeWorkApp");
-        frame.setFont(font);
-        frame.setResizable(false);
-        JPanel panelLeft = new JPanel();
-        panelLeft.setBackground(Color.darkGray);
-        frame.getContentPane().add(BorderLayout.CENTER, label);
-        JPanel panelRight = new JPanel();
-        panelRight.setBackground(Color.darkGray);
-        frame.getContentPane().add(BorderLayout.EAST, panelRight);
-        frame.getContentPane().add(BorderLayout.WEST, panelLeft);
-        frame.setBounds(x, y, 450, 110);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        add(label, BorderLayout.CENTER);
 
 
         this.infoLabel = new JLabel();
         infoLabel.setBackground(Color.RED);
-        infoLabel.setHorizontalAlignment(SwingConstants.CENTER);
-        frame.add(infoLabel, BorderLayout.NORTH);
+        add(infoLabel, BorderLayout.NORTH);
 
 
         JButton decrementButton = new JButton("<");
         decrementButton.setFont(font);
-
-        JButton decTenButton = new JButton("<<");
-        decTenButton.setFont(font);
-
-        panelLeft.add(decTenButton);
-        panelLeft.add(decrementButton);
+        add(decrementButton, BorderLayout.WEST);
 
         JButton incrementButton = new JButton(">");
         incrementButton.setFont(font);
-
-        JButton incTenButton = new JButton(">>");
-        incTenButton.setFont(font);
-
-        panelRight.add(incrementButton);
-        panelRight.add(incTenButton);
-
-        decTenButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                value -= 10;
-                label.setText(String.valueOf(value));
-                validateRange();
-            }
-        });
+        add(incrementButton, BorderLayout.EAST);
 
         decrementButton.addActionListener(new ActionListener() {
             @Override
@@ -89,18 +64,7 @@ public class HomeWorkApp8 extends JFrame {
             }
         });
 
-        incTenButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-                value += 10;
-                label.setText(String.valueOf(value));
-                validateRange();
-
-            }
-        });
-
-        frame.setVisible(true);
+        setVisible(true);
     }
 
     private void validateRange() {
@@ -112,7 +76,6 @@ public class HomeWorkApp8 extends JFrame {
     }
 
     public static void main(String[] args) {
-        new HomeWorkApp8(450, 110);
+        new HomeWorkApp8(100, 100);
     }
 }
-
