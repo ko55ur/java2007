@@ -48,7 +48,7 @@ public class ChatController implements Initializable {
             return;
         }
 
-       ObservableList<String> recipient = contacts.getSelectionModel().getSelectedItems();
+        ObservableList<String> recipient = contacts.getSelectionModel().getSelectedItems();
         if (!recipient.isEmpty()) {
             chatArea.appendText(recipient + text + System.lineSeparator());
             inputField.clear();
