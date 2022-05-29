@@ -10,6 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="chat" target="18" />
       <module name="java2007" target="18" />
     </bytecodeTargetLevel>
   </component>
