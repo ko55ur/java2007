@@ -10,8 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static course2.lesson7.chat.common.constants.MessageConstants.REGEX;
-import static course2.lesson7.chat.common.enums.Command.BROADCAST_MESSAGE;
-import static course2.lesson7.chat.common.enums.Command.LIST_USERS;
+import static course2.lesson7.chat.common.enums.Command.*;
 
 public class Server {
     private static final int PORT = 8189;
@@ -48,6 +47,18 @@ public class Server {
             handler.send(msg);
         }
     }
+
+    public void privateMessage(String from, String message) {
+        String msg = PRIVATE_MESSAGE.getCommand() + REGEX + String.format("[%s]: %s Привет", from, message);
+        for (Handler handler : handlers) {
+
+            if (handler.getUser().equals(from)) {
+                handler.send(msg);
+            }
+        }
+    }
+
+
 
     public UserService getUserService() {
         return userService;
@@ -86,4 +97,6 @@ public class Server {
             handler.send(msg);
         }
     }
+
+
 }

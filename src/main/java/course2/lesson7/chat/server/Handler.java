@@ -39,6 +39,7 @@ public class Handler {
                 try {
                     String message = in.readUTF();
                     parseMessage(message);
+
                 } catch (IOException e) {
                     System.out.println("Connection broken with client: " + user);
                     server.removeHandler(this);
@@ -54,6 +55,7 @@ public class Handler {
 
         switch (command) {
             case BROADCAST_MESSAGE -> server.broadcast(user, split[1]);
+            case PRIVATE_MESSAGE -> server.privateMessage(user, split[1]);
             default -> System.out.println("Unknown message " + message);
         }
     }
