@@ -3,6 +3,7 @@ package course2.lesson7.chat.client;
 import course2.lesson7.chat.client.net.MessageProcessor;
 import course2.lesson7.chat.client.net.NetworkService;
 import course2.lesson7.chat.common.enums.Command;
+import course2.lesson7.chat.server.Handler;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
@@ -21,6 +22,7 @@ import java.util.ResourceBundle;
 import static course2.lesson7.chat.common.constants.MessageConstants.REGEX;
 import static course2.lesson7.chat.common.enums.Command.AUTH_MESSAGE;
 import static course2.lesson7.chat.common.enums.Command.BROADCAST_MESSAGE;
+import  static course2.lesson7.chat.common.enums.Command.PRIVATE_MESSAGE;
 
 public class ChatController implements Initializable, MessageProcessor {
 
@@ -83,8 +85,12 @@ public class ChatController implements Initializable, MessageProcessor {
             String recipient = contacts.getSelectionModel().getSelectedItem();
             if (recipient.equals("ALL")) {
                 networkService.sendMessage(BROADCAST_MESSAGE.getCommand() + REGEX + text);
+
             }
-            //@TODO private msgs
+            if (recipient.equals(user)) {
+                networkService.sendMessage(PRIVATE_MESSAGE.getCommand() + REGEX + text);
+            }
+            //TODO разобраться с отправкой сообщения другому пользователю
             inputField.clear();
         } catch (IOException e) {
             showError("Network error");
