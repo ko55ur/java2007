@@ -1,37 +1,29 @@
 package course2.lesson8.chat.server;
 
 
-import course2.lesson8.chat.common.constants.MessageConstants;
 import course2.lesson8.chat.common.enums.Command;
 import course2.lesson8.chat.common.props.PropertyReader;
 import course2.lesson8.chat.server.error.NickAllreadyIsBusyException;
 import course2.lesson8.chat.server.error.WrongCredentialsException;
 
-import javax.swing.*;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
-import java.util.TimerTask;
 import java.util.Timer;
+import java.util.TimerTask;
 
 import static course2.lesson8.chat.common.constants.MessageConstants.REGEX;
-import static course2.lesson8.chat.common.enums.Command.AUTH_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.AUTH_OK;
-import static course2.lesson8.chat.common.enums.Command.BROADCAST_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.CHANGE_NICK_OK;
-import static course2.lesson8.chat.common.enums.Command.ERROR_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.PRIVATE_MESSAGE;
+import static course2.lesson8.chat.common.enums.Command.*;
 
 public class Handler {
+    private final long authTimeout;
     private Socket socket;
     private DataOutputStream out;
     private DataInputStream in;
     private Thread handlerThread;
     private Server server;
     private String user;
-
-    private final long authTimeout;
 
     public Handler(Socket socket, Server server) {
 
@@ -105,7 +97,7 @@ public class Handler {
                     e.getStackTrace();
                 }
             }
-            }, authTimeout);
+        }, authTimeout);
 
         try {
 

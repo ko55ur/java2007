@@ -11,9 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import static course2.lesson8.chat.common.constants.MessageConstants.REGEX;
-import static course2.lesson8.chat.common.enums.Command.BROADCAST_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.LIST_USERS;
-import static course2.lesson8.chat.common.enums.Command.PRIVATE_MESSAGE;
+import static course2.lesson8.chat.common.enums.Command.*;
 
 public class Server {
     private final int port;
