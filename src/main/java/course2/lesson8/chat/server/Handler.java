@@ -1,8 +1,8 @@
 package course2.lesson8.chat.server;
 
 
-import course2.lesson8.chat.common.constants.MessageConstants;
 import course2.lesson8.chat.common.enums.Command;
+import course2.lesson8.chat.common.props.PropertyReader;
 import course2.lesson8.chat.server.error.NickAllreadyIsBusyException;
 import course2.lesson8.chat.server.error.WrongCredentialsException;
 
@@ -10,16 +10,14 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import static course2.lesson8.chat.common.constants.MessageConstants.REGEX;
-import static course2.lesson8.chat.common.enums.Command.AUTH_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.AUTH_OK;
-import static course2.lesson8.chat.common.enums.Command.BROADCAST_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.CHANGE_NICK_OK;
-import static course2.lesson8.chat.common.enums.Command.ERROR_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.PRIVATE_MESSAGE;
+import static course2.lesson8.chat.common.enums.Command.*;
 
 public class Handler {
+    private final long authTimeout;
     private Socket socket;
     private DataOutputStream out;
     private DataInputStream in;
@@ -28,6 +26,8 @@ public class Handler {
     private String user;
 
     public Handler(Socket socket, Server server) {
+
+        authTimeout = PropertyReader.getInstance().getAuthTimeout();
         try {
             this.server = server;
             this.socket = socket;
@@ -82,7 +82,25 @@ public class Handler {
     private void authorize() {
         System.out.println("Authorizing");
 
+        var timer = new Timer(true);
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                try {
+                    if (user == null) {
+                        send("/error" + REGEX + "Authorizing timeout!");
+                        Thread.sleep(authTimeout);
+                        socket.close();
+                        System.out.println("Connection with client closed");
+                    }
+                } catch (InterruptedException | IOException e) {
+                    e.getStackTrace();
+                }
+            }
+        }, authTimeout);
+
         try {
+
             while (!socket.isClosed()) {
                 String msg = in.readUTF();
                 if (msg.startsWith(AUTH_MESSAGE.getCommand())) {
