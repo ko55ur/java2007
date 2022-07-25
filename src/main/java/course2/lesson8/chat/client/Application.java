@@ -1,5 +1,6 @@
 package course2.lesson8.chat.client;
 
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

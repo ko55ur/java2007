@@ -8,13 +8,13 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class NetworkService {
-    private  final String host;
-    private  final int port;
+    private final String host;
+    private final int port;
+    private final MessageProcessor messageProcessor;
     private DataInputStream in;
     private DataOutputStream out;
     private Socket socket;
     private Thread clientThread;
-    private final MessageProcessor messageProcessor;
 
     public NetworkService(MessageProcessor messageProcessor) {
         this.messageProcessor = messageProcessor;

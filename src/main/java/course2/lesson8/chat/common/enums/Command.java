@@ -18,10 +18,6 @@ public enum Command {
         this.command = command;
     }
 
-    public String getCommand() {
-        return command;
-    }
-
     public static Command getByCommand(String command) {
         for (Command value : values()) {
             if (Objects.equals(value.command, command)) {
@@ -29,5 +25,9 @@ public enum Command {
             }
         }
         throw new IllegalArgumentException();
+    }
+
+    public String getCommand() {
+        return command;
     }
 }

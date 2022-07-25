@@ -1,22 +1,15 @@
 package course2.lesson8.chat.client;
 
+import course2.lesson8.chat.client.net.MessageProcessor;
+import course2.lesson8.chat.client.net.NetworkService;
+import course2.lesson8.chat.common.enums.Command;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-import course2.lesson8.chat.client.net.MessageProcessor;
-import course2.lesson8.chat.client.net.NetworkService;
-import course2.lesson8.chat.common.enums.Command;
 
 import java.io.IOException;
 import java.net.URL;
@@ -26,10 +19,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import static course2.lesson8.chat.common.constants.MessageConstants.REGEX;
-import static course2.lesson8.chat.common.enums.Command.AUTH_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.BROADCAST_MESSAGE;
-import static course2.lesson8.chat.common.enums.Command.CHANGE_NICK;
-import static course2.lesson8.chat.common.enums.Command.PRIVATE_MESSAGE;
+import static course2.lesson8.chat.common.enums.Command.*;
 
 public class ChatController implements Initializable, MessageProcessor {
 
