@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ChatController implements Initializable, MessageProcessor {
@@ -60,6 +61,7 @@ public class ChatController implements Initializable, MessageProcessor {
 
     @FXML
     private Button btnSend;
+    private HistoryAdd historyAdd;
 
     public void connectToServer(ActionEvent actionEvent) {
     }
@@ -72,6 +74,7 @@ public class ChatController implements Initializable, MessageProcessor {
 
     public void exit(ActionEvent actionEvent) {
         System.exit(1);
+
     }
 
     public void showHelp(ActionEvent actionEvent) {
@@ -111,6 +114,11 @@ public class ChatController implements Initializable, MessageProcessor {
                 this.nick = splitMessage[1];
                 loginPanel.setVisible(false);
                 mainChatPanel.setVisible(true);
+                this.historyAdd = new HistoryAdd(nick);
+                List<String> history = historyAdd.readHistory();
+                for (String s : history) {
+                    mainChatArea.appendText(s + System.lineSeparator());
+                }
 
                 break;
             case "/error":
@@ -132,6 +140,7 @@ public class ChatController implements Initializable, MessageProcessor {
                 break;
             default:
                 mainChatArea.appendText(splitMessage[0] + System.lineSeparator());
+                historyAdd.writeHistory(splitMessage[0] + System.lineSeparator());
                 break;
         }
     }

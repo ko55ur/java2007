@@ -1,10 +1,9 @@
 package course3.chat.server.db;
 
-import course3.chat.server.error.ChangeNickExeption;
+import course3.chat.server.error.ChangeNickException;
 import course3.chat.server.error.WrongCredentialsException;
 
 import java.sql.*;
-
 
 public class ClientsDbService {
     private static final String DRIVER = "org.sqlite.JDBC";
@@ -21,16 +20,7 @@ public class ClientsDbService {
     PreparedStatement getClientStatement;
     PreparedStatement changeNickStatement;
 
-    private ClientsDbService() {
-        try {
-            connect();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
-        createDb();
-    }
-
-    public static ClientsDbService getInstance() {
+   public static ClientsDbService getInstance() {
         if (instance != null) return instance;
         instance = new ClientsDbService();
         return instance;
@@ -38,17 +28,21 @@ public class ClientsDbService {
 
     public String changeNick(String login, String newNick) {
         try (PreparedStatement psChangeNick = connection.prepareStatement(CHANGE_USERNAME)){
+            connect();
             psChangeNick.setString(1, newNick);
             psChangeNick.setString(2, login);
             if (psChangeNick.executeUpdate() > 0) return newNick;
-        } catch (SQLException e) {
+            closeConnection();
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+
         }
-        throw new ChangeNickExeption("Something went wrong with nickname change");
+        throw new ChangeNickException("Something went wrong with nickname change");
     }
 
     public String getClientNameByLoginPass(String login, String pass) {
         try {
+            connect();
             getClientStatement.setString(1, login);
             getClientStatement.setString(2, pass);
             ResultSet rs = getClientStatement.executeQuery();
@@ -58,18 +52,23 @@ public class ClientsDbService {
                 System.out.printf("login is: %s\n", result);
                 return result;
             }
-        } catch (SQLException e) {
+            closeConnection();
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+
         }
         throw new WrongCredentialsException("User not found");
     }
 
     private void createDb() {
         try (Statement st = connection.createStatement()) {
+            connect();
             st.execute(CREATE_DB);
             st.execute(INIT_DB);
-        } catch (SQLException throwable) {
+            closeConnection();
+        } catch (ClassNotFoundException | SQLException throwable) {
             throwable.printStackTrace();
+
         }
     }
 
@@ -80,6 +79,7 @@ public class ClientsDbService {
         getClientStatement = connection.prepareStatement(GET_USERNAME);
         changeNickStatement = connection.prepareStatement(CHANGE_USERNAME);
     }
+
 
     public void closeConnection() {
         try {

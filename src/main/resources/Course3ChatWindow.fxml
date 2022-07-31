@@ -48,7 +48,6 @@
                 <MenuItem onAction="#disconnectFromServer" text="Disconnect" />
                 <MenuItem onAction="#showChangeNick" text="Change nickname" />
                 <MenuItem onAction="#showChangePass" text="Change password" />
-                <MenuItem onAction="#mockAction" text="Item5" />
                 <MenuItem onAction="#exit" text="Exit" />
             </Menu>
             <Menu text="Edit">
@@ -68,10 +67,6 @@
                 <MenuItem onAction="#mockAction" text="Item6" />
             </Menu>
             <Menu text="Help">
-                <MenuItem onAction="#mockAction" text="Item1" />
-                <MenuItem onAction="#mockAction" text="Item2" />
-                <MenuItem onAction="#mockAction" text="Item3" />
-                <MenuItem onAction="#mockAction" text="Item4" />
                 <MenuItem onAction="#showHelp" text="Help" />
                 <MenuItem onAction="#showAbout" text="About" />
             </Menu>
