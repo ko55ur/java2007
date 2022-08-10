@@ -62,12 +62,12 @@ public class Server {
     }
 
     public synchronized void addAuthorizedClientToList(Handler clientHandler) {
-        clientHandlers.add(clientHandler);
+        this.clientHandlers.add(clientHandler);
         sendOnlineClients();
     }
 
     public synchronized void removeAuthorizedClientFromList(Handler clientHandler) {
-        clientHandlers.remove(clientHandler);
+        this.clientHandlers.remove(clientHandler);
         sendOnlineClients();
     }
 

@@ -30,12 +30,12 @@ public class Handler {
             this.out = new DataOutputStream(socket.getOutputStream());
             System.out.println("Handler created");
         } catch (IOException e) {
-            System.out.println("Connection broken with user " + user);
+            System.out.println("Connection problems with user " + user);
         }
     }
 
     public void handle() {
-//       handlerThread = new Thread(() -> {
+
         server.getExecutorService().execute(() -> {
             authorize();
             while (!Thread.currentThread().isInterrupted() && !socket.isClosed()) {
@@ -48,7 +48,6 @@ public class Handler {
                 }
             }
         });
- //       handlerThread.start();
     }
 
     private void handleMessage(String message) {
@@ -145,11 +144,6 @@ public class Handler {
             e.printStackTrace();
         }
     }
-
-    public Thread getHandlerThread() {
-        return handlerThread;
-    }
-
     public String getUserNick() {
         return this.user;
     }
